@@ -24,7 +24,7 @@ class OpenAIAgentAdapter:
             # Access secrets with the exact keys from secrets.toml
             self.api_key = st.secrets["openrouter_key"]
             self.base_url = st.secrets.get("openrouter_base_url", "https://openrouter.ai/api/v1")
-            self.model = st.secrets.get("openrouter_model", "meta-llama/llama-3.3-70b-instruct:free")
+            self.model = st.secrets.get("openrouter_model", "openai/gpt-oss-120b:free")
             
             # Debug info (remove in production or use st.write for debugging)
             st.session_state.openrouter_config = {
