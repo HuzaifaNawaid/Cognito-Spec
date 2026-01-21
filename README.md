@@ -1,10 +1,20 @@
 # Cognito-Spec
 
-A multi-agent web application built with Streamlit and OpenAI's Agent SDK, featuring intelligent AI agents powered by Firebase backend.
+A multi-agent web application Where Four AI Agents Transform Requirements Engineering! 
 
 ## 📋 Overview
 
-Cognito-Spec is an advanced multi-agent system that leverages OpenAI's Agent SDK to create intelligent, collaborative AI agents. Built on Streamlit for a seamless web interface, this application demonstrates the power of orchestrating multiple AI agents working together to solve complex tasks while maintaining persistent data storage through Firebase.
+Cognito-Spec is an advanced multi-agent system that works like a full RE team, ensuring every requirement is captured, clarified, structured, and validated without the usual gaps or inconsistencies.leverages OpenAI's Agent SDK to create intelligent, collaborative AI agents. 
+
+Built on Streamlit for a seamless web interface, this application demonstrates the power of orchestrating multiple AI agents working together to solve complex tasks while maintaining persistent data storage through Firebase.
+
+## 📋 Agents description
+
+🎯 Agent 1 - The Elicitor: Conducts conversational interviews with context-aware questioning, ensuring no stakeholder insight is missed
+🔍 Agent 2 - The Analyzer: Performs real-time classification, detects conflicts, and runs completeness checks as requirements flow in
+📋 Agent 3 - The Specifier: Generates professional requirement documents automatically, structured and ready to use
+✅ Agent 4 - The Validator: Conducts thorough gap analysis and completeness verification before you ship
+
 Live Demo: https://cognito-spec.streamlit.app/
 
 ## 🛠️ Tech Stack
