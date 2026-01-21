@@ -10,10 +10,10 @@ Built on Streamlit for a seamless web interface, this application demonstrates t
 
 ## 📋 Agents description
 
-🎯 Agent 1 - The Elicitor: Conducts conversational interviews with context-aware questioning, ensuring no stakeholder insight is missed
-🔍 Agent 2 - The Analyzer: Performs real-time classification, detects conflicts, and runs completeness checks as requirements flow in
-📋 Agent 3 - The Specifier: Generates professional requirement documents automatically, structured and ready to use
-✅ Agent 4 - The Validator: Conducts thorough gap analysis and completeness verification before you ship
+- **🎯 Agent 1** - The Elicitor: Conducts conversational interviews with context-aware questioning, ensuring no stakeholder insight is missed
+- **🔍 Agent 2** - The Analyzer: Performs real-time classification, detects conflicts, and runs completeness checks as requirements flow in
+- **📋 Agent 3** - The Specifier: Generates professional requirement documents automatically, structured and ready to use
+- **✅ Agent 4** - The Validator: Conducts thorough gap analysis and completeness verification before you ship
 
 Live Demo: https://cognito-spec.streamlit.app/
 
