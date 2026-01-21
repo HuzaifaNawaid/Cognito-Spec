@@ -95,10 +95,6 @@ Cognito-Spec/
    # Firebase Configuration
    FIREBASE_CREDENTIALS=path_to_firebase_credentials.json
    FIREBASE_DATABASE_URL=your_firebase_database_url
-   
-   # Application Settings
-   STREAMLIT_SERVER_PORT=8501
-   STREAMLIT_SERVER_ADDRESS=localhost
    ```
 
 5. **Set up Firebase**
