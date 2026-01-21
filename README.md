@@ -1,38 +1,68 @@
 # Cognito-Spec
 
-A Streamlit-based application that integrates AI capabilities with Firebase backend and OpenAI services.
+A multi-agent web application built with Streamlit and OpenAI's Agent SDK, featuring intelligent AI agents powered by Firebase backend.
 
 ## 📋 Overview
 
-Cognito-Spec is a web application built with Streamlit that provides an AI-powered interface for users. The application leverages Firebase for data management and OpenAI for intelligent responses and interactions.
+Cognito-Spec is an advanced multi-agent system that leverages OpenAI's Agent SDK to create intelligent, collaborative AI agents. Built on Streamlit for a seamless web interface, this application demonstrates the power of orchestrating multiple AI agents working together to solve complex tasks while maintaining persistent data storage through Firebase.
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Streamlit** - Interactive web application framework
+- **Python 3.8+** - Core programming language
+
+### Backend
+- **OpenAI Agent SDK** - Multi-agent orchestration and management
+- **OpenAI API** - GPT models for intelligent responses
+- **Agent Architecture** - Modular agent design with specialized capabilities
+
+### Database
+- **Firebase** - Cloud-based backend services
+  - Firestore - NoSQL database for data persistence
+  - Firebase Authentication - User management
+  - Firebase Storage - File and media storage
+
+
+## 🤖 Multi-Agent Architecture
+
+This application implements a sophisticated multi-agent system using OpenAI's Agent SDK:
+
+- **Agent Controller** (`ai_controller.py`) - Orchestrates multiple agents and manages their interactions
+- **OpenAI Adapter** (`openai_adapter.py`) - Interfaces with OpenAI's Agent SDK for agent creation and management
+- **Firebase Manager** (`firebase_manager.py`) - Handles data persistence for agent states and conversations
+- **Specialized Agents** - Multiple agents with distinct roles and capabilities working collaboratively
 
 ## 🏗️ Project Structure
 
 ```
 Cognito-Spec/
-├── Home.py                 # Main Streamlit application entry point
-├── ai_controller.py        # AI logic and control flow
-├── firebase_manager.py     # Firebase integration and database operations
-├── openai_adapter.py       # OpenAI API integration
-├── requirements.txt        # Python dependencies
-├── logooo.png             # Application logo
-└── pages/                 # Additional Streamlit pages
+├── Home.py               # Main Streamlit application entry point
+├── ai_controller.py      # Multi-agent orchestration and control flow
+├── firebase_manager.py   # Firebase integration and database operations
+├── openai_adapter.py     # OpenAI Agent SDK integration
+├── requirements.txt      # Python dependencies
+├── logooo.png            # Application logo
+└── pages/                # Additional Streamlit pages for different agent interfaces
 ```
 
 ## 🚀 Features
 
-- **AI-Powered Interface**: Intelligent interactions powered by OpenAI
-- **Firebase Integration**: Secure data storage and retrieval
-- **Multi-Page Application**: Organized navigation with Streamlit pages
-- **Modular Architecture**: Separate modules for AI control, Firebase operations, and OpenAI integration
+- **Multi-Agent Collaboration**: Multiple AI agents working together using OpenAI's Agent SDK
+- **Agent Orchestration**: Intelligent coordination between specialized agents
+- **Real-time Interactions**: Dynamic conversations with AI agents
+- **Firebase Integration**: Persistent storage for agent states, conversations, and user data
+- **Multi-Page Interface**: Organized navigation for different agent functionalities
+- **Modular Architecture**: Separate modules for agent control, Firebase operations, and OpenAI integration
+- **Scalable Design**: Easy to add new agents and extend functionality
 
 ## 📦 Installation
 
 ### Prerequisites
 
 - Python 3.8 or higher
-- Firebase account and credentials
-- OpenAI API key
+- Firebase account and project
+- OpenAI API key with access to Agent SDK
 
 ### Setup Steps
 
@@ -42,24 +72,40 @@ Cognito-Spec/
    cd Cognito-Spec
    ```
 
-2. **Install dependencies**
+2. **Create a virtual environment (recommended)**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Configure environment variables**
+4. **Configure environment variables**
    
-   Create a `.env` file in the root directory with the following:
+   Create a `.env` file in the root directory:
    ```env
+   # OpenAI Configuration
    OPENAI_API_KEY=your_openai_api_key
+   OPENAI_AGENT_SDK_KEY=your_agent_sdk_key
+   
+   # Firebase Configuration
    FIREBASE_CREDENTIALS=path_to_firebase_credentials.json
-   # Add other necessary environment variables
+   FIREBASE_DATABASE_URL=your_firebase_database_url
+   
+   # Application Settings
+   STREAMLIT_SERVER_PORT=8501
+   STREAMLIT_SERVER_ADDRESS=localhost
    ```
 
-4. **Set up Firebase**
-   - Download your Firebase service account credentials
-   - Place the JSON file in a secure location
-   - Update the path in your environment variables
+5. **Set up Firebase**
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
+   - Enable Firestore Database
+   - Enable Authentication (if required)
+   - Download service account credentials (JSON file)
+   - Place the JSON file in a secure location and update the path in `.env`
 
 ## 🎯 Usage
 
@@ -71,38 +117,49 @@ streamlit run Home.py
 
 The application will open in your default web browser at `http://localhost:8501`
 
-## 🔧 Configuration
-
-### Firebase Setup
-
-Ensure your Firebase project is configured with:
-- Firestore database
-- Authentication (if required)
-- Storage buckets (if needed)
-
-### OpenAI Integration
-
-Configure your OpenAI API settings in the `openai_adapter.py` module or through environment variables.
-
 ## 📁 Module Descriptions
 
 ### `Home.py`
-Main entry point for the Streamlit application. Contains the primary user interface and navigation logic.
+Main entry point for the Streamlit application. Provides the primary user interface, navigation logic, and initializes the multi-agent system.
 
 ### `ai_controller.py`
-Manages AI logic, prompt engineering, and coordinates between the UI and AI services.
+Core orchestration module for the multi-agent system. Manages agent lifecycle, coordinates interactions between agents, handles task delegation, and maintains conversation context.
 
 ### `firebase_manager.py`
-Handles all Firebase operations including:
-- Database reads and writes
-- Authentication management
-- Data validation
+Handles all Firebase operations:
+- Agent state persistence
+- Conversation history storage
+- User data management
+- Real-time data synchronization
 
 ### `openai_adapter.py`
-Provides an abstraction layer for OpenAI API calls, making it easier to:
-- Switch between different OpenAI models
-- Handle API errors gracefully
-- Implement retry logic
+Abstraction layer for OpenAI's Agent SDK:
+- Agent creation and configuration
+- API call management
+- Model selection and optimization
+- Error handling and fallback mechanisms
+
+## 🏛️ Agent Architecture
+
+The application follows a modular multi-agent architecture:
+
+```
+User Interface (Streamlit)
+        ↓
+Agent Controller (Orchestrator)
+        ↓
+Multiple Specialized Agents
+        ↓
+OpenAI Agent SDK
+        ↓
+Firebase (State Management)
+```
+
+Each agent can have:
+- Specific domain expertise
+- Unique prompt engineering
+- Dedicated tools and capabilities
+- Persistent memory through Firebase
 
 ## 🤝 Contributing
 
@@ -129,14 +186,24 @@ Found a bug or have a suggestion? Please open an issue on the [GitHub Issues](ht
 
 ## 📞 Support
 
-For support and questions, please create an issue in the repository.
+For support and questions:
+- Create an issue in the repository
+- Check existing documentation
+- Review the code comments and docstrings
 
 ## 🙏 Acknowledgments
 
-- [Streamlit](https://streamlit.io/) - For the amazing web framework
-- [OpenAI](https://openai.com/) - For AI capabilities
-- [Firebase](https://firebase.google.com/) - For backend services
+- [Streamlit](https://streamlit.io/) - For the powerful web framework
+- [OpenAI](https://openai.com/) - For Agent SDK and AI capabilities
+- [Firebase](https://firebase.google.com/) - For reliable backend services
+- The open-source community for continuous inspiration
+
+## 📚 Resources
+
+- [OpenAI Agent SDK Documentation](https://openai.github.io/openai-agents-python/)
+- [Streamlit Documentation](https://docs.streamlit.io/)
+- [Firebase Documentation](https://firebase.google.com/docs)
 
 ---
 
-Made with ❤️ by Huzaifa Nawaid
+**Built with multi-agent intelligence** 🤖 **by Huzaifa Nawaid** ❤️
