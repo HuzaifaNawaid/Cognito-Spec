@@ -1,0 +1,6 @@
+streamlit
+openai
+openai-agents
+firebase-admin
+python-docx
+pandas
