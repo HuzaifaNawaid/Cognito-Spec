@@ -252,8 +252,7 @@ Create a professional SRS document with these sections:
 7. APPENDIX
 
 Use IEEE SRS format. Be thorough and professional.
-Format in markdown with proper headings.Don't generate long SRS document, be concise and specific to the domain.
-Don't generate any additional text other than the SRS document."""
+Format in markdown with proper headings."""
         
         # Prepare requirements text
         req_by_type = {}
